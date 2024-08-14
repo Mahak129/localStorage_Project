@@ -1,0 +1,80 @@
+
+*{
+    /* margin: 20px;
+    padding: 20px; */
+    box-sizing: border-box;
+
+}
+body{
+    background-color: rgba(185, 18, 18, 0.37);
+    
+}
+
+h1{
+    text-align: center;
+}
+.food-item 
+{ margin: 20px;
+
+}
+.food-item img { width: 150px; height: 150px; }
+.order-btn { margin-top: 20px; }
+
+
+.mainDivOrder{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap:20px;
+    justify-content: space-around;
+
+}
+.description{
+    display: flex;
+    flex-direction:column;
+    column-gap: 1px;
+    align-items: center;
+}
+.subdiv{
+    border: 20px;
+    color:rgb(241, 232, 232);
+    border-radius: 20px;
+    display: flex;
+    width: 500px;
+    border: solid;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+img{
+    margin-bottom: 20px;
+   
+
+}
+.imgDescription{
+    border:solid;
+    border:20px;
+    color:black;
+}
+h1,h2,p{
+    margin:0px;
+    color: white;
+}
+.btnAdd{
+    width:150px;
+    height:40px;
+    border-radius: 5px;
+    
+}
+
+.order-btn{
+align-items: center;
+margin-left: 550px;
+width:200px;
+height:65px;
+
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner</title>
+    <link rel="stylesheet" href="../css/style2.css">
+</head>
+<body> 
+    <h1>Dinner</h1>
+    <div class="mainDivOrder" id="mainDivOrder">
+ 
+
+  
+
+</div>
+<button class="order-btn" onclick="placeOrder()">Place Order</button>
+<script>
+    const load = ()=>{
+        console.log("loaded")
+        let mealList = JSON.parse(localStorage.getItem("mealList"));
+        mealList.forEach(meal => {
+            createList(meal)
+        });
+    }
+
+    function createList(meal){
+        let newDiv = document.createElement("div");
+        let str=`<div class="food-item">
+        <img src="${meal.image}" alt="FoodImg">
+        <h3>${meal.name}</h3>
+        <p>${meal.price}</p>
+        <button onclick="addToOrder('${meal.name}', '${meal.price}')">Add to Order</button>
+    </div>`
+    newDiv.innerHTML=str;
+    document.getElementById("mainDivOrder").appendChild(newDiv);
+    }
+
+    window.onload= load();
+    let order = [];
+
+    function addToOrder(name, price) {
+        order.push({ name, price, quantity: 1,status:"preparing" });
+        alert(name + " added to order!");
+    }
+
+    function placeOrder() {
+        if (order.length === 0) {
+            alert("No items in the order.");
+            return;
+        }
+
+        const orderId = 'ORD-' + Math.floor(Math.random() * 100);
+        localStorage.setItem('order', JSON.stringify({ id: orderId, items: order }));
+        window.location.href = 'order.html';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Order</title>
+    <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+    
+    <h1>EAT.AT.EASE</h1>
+    <h3>Order Summary
+    </h3>
+    <div id="order-summary"></div>
+    <button class="order-btn" onclick="submitOrder()" id="myButton">Submit Order</button>
+
+
+    <div class="orderDetail">
+  
+
+  
+
+
+</div>
+
+
+
+
+ 
+<div class="feebackButton">
+   <a href="feedback.html"> <button>Feedback</button></a>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const order = JSON.parse(localStorage.getItem('order'));
+      if (!order) {
+          alert("No order found.");
+          window.location.href = 'index.html';
+          return;
+      }
+
+      let orderSummary = `<h2>Order ID: ${order.id}</h2>`;
+      let total = 0;
+      
+      order.items.forEach((item, index) => {
+          total += item.price * item.quantity;
+          orderSummary += `
+              <div class="order-item">
+                  <img src="${item.name.toLowerCase()}.jpg" alt="${item.name}">
+                  <h3>${item.name}</h3>
+                  <p>&#2352;${item.price}</p>
+                  <label>Quantity: 
+                      <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                  </label>
+              </div>
+          `;
+      });
+
+      orderSummary += `<h3>Total: &#2352;${total.toFixed(2)}</h3>`;
+      document.getElementById('order-summary').innerHTML = orderSummary;
+  });
+
+  function updateQuantity(index, quantity) {
+      const order = JSON.parse(localStorage.getItem('order'));
+      if (order) {
+          order.items[index].quantity = parseInt(quantity, 10);
+          localStorage.setItem('order', JSON.stringify(order));
+          location.reload();  // Reload to update total
+      }
+  }
+
+  function submitOrder() {
+    // const orderList = JSON.parse(localStorage.getItem('orderList'));
+    //   if (!orderList) {
+    //       alert("No order List found.");
+    //       localStorage.setItem("orderList",JSON.stringify([]));
+    //       window.location.href = 'index.html';
+    //       return;
+    //   }
+    //   const order = JSON.parse(localStorage.getItem('order'));
+    //   if (order) {
+    //     alert("Order submitted!");
+    //     orderList.push(order);
+    //     localStorage.setItem("orderList",JSON.stringify(orderList));
+    //       localStorage.removeItem('order');  
+
+
+
+    //new wala
+    const orderList = JSON.parse(localStorage.getItem('orderList')) || [];
+        const order = JSON.parse(localStorage.getItem('order'));
+
+        if (order) {
+          order.id = Date.now(); // Generate a unique order ID based on timestamp
+          order.status = 'Pending'; // Default status
+          alert(`Order submitted! Your Order ID is ${order.id}`);
+          orderList.push(order);
+          localStorage.setItem('orderList', JSON.stringify(orderList));
+          localStorage.removeItem('order');
+          window.location.href = 'trackOrder.html';
+
+
+          //
+      }
+  }
+
+  const trackPage = document.getElementById('myButton');
+  trackPage.addEventListener('click',  function (){
+            window.location.href = "trackOrder.html";
+        })
+</script>
+</body>
+</html>

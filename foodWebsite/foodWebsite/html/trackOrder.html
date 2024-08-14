@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order</title>
+    <link rel="stylesheet" href="../css/feedback.css">
+</head>
+<body>
+    
+        <!-- <h1>EAT.AT.EASE</h1>
+        <h3>Track your Order 
+        </h3>
+        <div class="form-box">
+
+
+        </div> -->
+
+
+        <h1>Track Your Order</h1>
+        <label for="orderID">Enter Order ID:</label>
+        <input type="number" id="orderID" placeholder="Order ID">
+        <button onclick="trackOrder()">Track Order</button>
+    
+        <div id="order-status"></div>
+        
+        <script>
+          function trackOrder() {
+              const orderID = document.getElementById('orderID').value;
+              const orderList = JSON.parse(localStorage.getItem('orderList')) || [];
+              const order = orderList.find(o => o.id == orderID);
+    
+              if (order) {
+                  document.getElementById('order-status').innerHTML = `
+                      <h2>Order ID: ${order.id}</h2>
+                      <h3>Status: ${order.status || 'Pending'}</h3>
+                      <div class="order-items">
+                          ${order.items.map(item => `
+                              <div class="order-item">
+                                  <h3>${item.name}</h3>
+                                  <p>&#2352;${item.price}</p>
+                                  <p>Quantity: ${item.quantity}</p>
+                              </div>
+                          `).join('')}
+                      </div>
+                  `;
+              } else {
+                  alert('Order not found.');
+              }
+          }
+        </script>
+    </body>
+
+</html>

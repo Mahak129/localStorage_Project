@@ -1,0 +1,30 @@
+
+body{
+
+    background-color: rgba(185, 18, 18, 0.37);
+    padding:45px;
+    margin:50px;
+    }
+
+    h1{
+        text-align: center;
+    }
+.signup-box{
+    border: solid;
+    width: 350px;
+    height: 400px;
+    display: flex;
+    justify-content:center!important;
+    text-align: center;
+   
+   align-items: center;
+   flex-direction: column;
+   margin-left: 370px;
+}
+
+.subdiv{
+    display: felx;
+    margin-bottom: 20px;
+    margin-top: 20px;
+   
+}

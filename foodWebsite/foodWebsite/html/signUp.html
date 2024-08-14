@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Sign-Up</title>
+       <link rel="stylesheet" href="../css/signup.css">
+</head>
+
+<body>
+       <h1>Sign Up </h1>
+       <!-- signup form -->
+       <div class="signup-box">
+<div class="subdiv">
+       <label for="">Name</label>
+       <input type="text" class="name ele" id="nameInput" placeholder="Enter your name">
+
+</div>
+<div class="subdiv">
+
+       <label for="">Email</label>
+       <input type="email" class="email ele" id="emailInput" placeholder="youremail@email.com">
+
+</div>
+
+<div class="subdiv">
+
+       <label for="">Password</label>
+       <input type="password" class="password ele" id="passwordInput" placeholder="password" required>
+
+</div>
+
+<div class="subdiv">
+       <label for="">Confirm Password</label>
+       <input type="password" class="password ele" placeholder="Confirm password">
+       
+</div>
+
+             
+            
+            
+              <button class="clkbtn" onclick="handleRegister(event)" id ="myButton">Signup</button>
+       </div>
+       <script>
+
+ const button = document.getElementById('myButton');
+  button.addEventListener('click', function() {
+    alert('Sign-Up Succesfull');
+  });
+  const pageURL = document.getElementById('myButton');
+  pageURL.addEventListener('click',  function (){
+            window.location.href = "index.html";
+        })
+
+              function handleRegister(event) {
+                     event.preventDefault();
+                     const name = document.getElementById("nameInput").value;
+                     const email = document.getElementById("emailInput").value;
+                     const password = document.getElementById("passwordInput").value;
+                     console.log(email, password);
+                     let userList;
+                     let userData = localStorage.getItem("user");
+                     if (userData == null) {
+                            userList = [];
+                     } else{
+                            userList = JSON.parse(userData);
+                     }
+                  
+                     const userObj = {
+                            name: name,
+                            email: email,
+                            password: password
+                     }
+
+                     userList.push(userObj);
+                     localStorage.setItem('user', JSON.stringify(userList));
+
+              }
+
+
+
+
+
+
+
+              
+       </script>
+</body>
+
+</html>

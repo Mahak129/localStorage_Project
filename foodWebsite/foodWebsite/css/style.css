@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+    color: #fff;
+}
+
+html,body{
+    height: 100%!important;
+    width:100%!important;
+    perspective: 800px!important;
+    background-color: rgba(185, 18, 18, 0.37)!important;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 100px;
+    }
+}
+
+
+
+li a{
+    font-weight: 1000!important;
+    padding-right: 10px!important;
+    padding-left: 10px!important;
+
+}
+.navbar1{
+    display: flex!important;
+   
+   
+    align-items: center!important;
+    position:fixed!important;
+}
+.navbar1 ul{
+    /* height: 120px;
+    width:100%;
+    */
+    display: flex!important;
+    align-items:center!important;
+  
+    gap:50px!important;
+    
+    justify-content:center!important;
+  
+    
+
+}
+
+.navbar1 ul li a{
+    /* text-transform: uppercase!important; */
+    font-weight: 500!important;
+    text-decoration: none!important;
+    color: #fff;
+    
+    
+}
+
+.navbar1 ul li{
+    text-decoration: none!important;
+    
+}
+#page1 p{
+color:white;
+}
+.navbar1 ul{
+    list-style: none;
+    display: flex;
+}
+
+ p ,h5{
+    color: black!important;
+ }
+
+ /* #btn{
+    bs-btn-bg:rgba(185, 18, 18, 0.37);
+    background-color:rgba(185, 18, 18, 0.37);
+    color:rgba(185, 18, 18, 0.37);
+ } */
+.logo{
+    height:70px;
+    /* display: flex;
+    justify-content: left; */
+}
+
+.main{
+    position: relative!important;
+}
+#page1{
+    height: 100vh!important;
+    width:100%!important;
+    position: relative!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    flex-direction: column!important;
+    text-align: center!important;
+    z-index: 10!important;
+    /* background-color: red; */
+}
+
+#page1 h1{
+    font-size: 150px!important;
+}
+
+#page1 h2{
+    font-size: 40px!important;
+}
+
+#page1 p{
+    font-size: 30px!important;
+}
+
+.mealSection{
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+    justify-content: space-around;
+}
+
+.card{
+    border: solid;
+    color: black;
+    
+}
+
+#navHead{
+    display: flex;
+    justify-content: center;
+}
+#btnTime{
+    visibility: visible;
+}
+#btnTime2{
+    visibility: visible;
+}
+
+#btnTime3{
+    visibility: visible;
+}
